@@ -109,7 +109,7 @@ export default {
         .put(url, this.form)
         .then((res) => {
           this.form = res.data;
-          console.log(res);
+
           Swal.fire({
             position: "top-end",
             icon: "success",
@@ -139,7 +139,6 @@ export default {
       axios
         .delete(url)
         .then((res) => {
-          console.log(res);
           Swal.fire({
             position: "top-end",
             icon: "success",
@@ -179,8 +178,6 @@ export default {
       this.form.first_name = this.user.first_name;
       this.form.last_name = this.user.last_name;
       this.form.avatar = this.user.avatar;
-
-      console.log(this.form);
     });
   },
 };
