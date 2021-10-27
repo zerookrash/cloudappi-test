@@ -13,12 +13,27 @@ const routes = [
   {
     path: "/dashboard",
     name: "Dashboard",
-    component: () => import("../views/Dashboard.vue"),
+    component: () => {
+      if (localStorage.getItem("token")) {
+        return import("../views/Dashboard.vue");
+      } else if (!localStorage.getItem("token")) {
+        return import("../views/noToken.vue");
+      }
+    },
   },
   {
     path: "/editar/:id",
     name: "Editar",
-    component: () => import("../views/Editar.vue"),
+    component: () => {
+      if (localStorage.getItem("token")) {
+        return import("../views/Editar.vue");
+      }
+    },
+  },
+  {
+    path: "/cadastro",
+    name: "Cadastro",
+    component: () => import("../views/noToken.vue"),
   },
 ];
 
